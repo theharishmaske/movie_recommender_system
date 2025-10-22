@@ -5,7 +5,7 @@ import requests
 import os
 import gdown
 
-https://drive.google.com/drive/folders/1PT3WslF6sH1XYj8KHXJjIl5WQ62nB1kb?usp=sharing
+# https://drive.google.com/drive/folders/1PT3WslF6sH1XYj8KHXJjIl5WQ62nB1kb?usp=sharing
 def download_from_drive(file_id, output_name):
     """Downloads a file from Google Drive if not already present"""
     if not os.path.exists(output_name):
@@ -92,5 +92,6 @@ if st.button('Recommend'):
         st.text(names[4])
 
         st.image(posters[4])
+
 
 
