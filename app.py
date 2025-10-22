@@ -2,6 +2,13 @@ import streamlit as st
 import  pickle
 import pandas as pd
 import requests
+import os
+import subprocess
+
+if not os.path.exists('similarity.pkl'):
+    print("Extracting similarity.pkl...")
+    subprocess.run(['7z', 'e', 'similarity.pkl.7z'])
+
 
 
 def fetch_poster(movie_id):
@@ -72,4 +79,5 @@ if st.button('Recommend'):
         st.image(posters[3])
     with col5:
         st.text(names[4])
+
         st.image(posters[4])
