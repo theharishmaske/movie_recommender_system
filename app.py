@@ -3,10 +3,22 @@ import  pickle
 import pandas as pd
 import requests
 import os
-import py7zr
+import gdown
 
-with py7zr.SevenZipFile('similarity.pkl.7z', mode='r') as archive:
-    archive.extractall(path='.')
+https://drive.google.com/drive/folders/1PT3WslF6sH1XYj8KHXJjIl5WQ62nB1kb?usp=sharing
+def download_from_drive(file_id, output_name):
+    """Downloads a file from Google Drive if not already present"""
+    if not os.path.exists(output_name):
+        st.write("📥 Downloading large model file from Google Drive...")
+        url = f"https://drive.google.com/uc?id={file_id}"
+        gdown.download(url, output_name, quiet=False)
+        st.success("✅ Download complete.")
+    else:
+        st.write("✅ Model file already available locally.")
+
+# Replace this with your real file ID from Drive
+FILE_ID = "1PT3WslF6sH1XYj8KHXJjIl5WQ62nB1kb"
+download_from_drive(FILE_ID, "similarity.pkl")
 
 
 
@@ -80,4 +92,5 @@ if st.button('Recommend'):
         st.text(names[4])
 
         st.image(posters[4])
+
 
