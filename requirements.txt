@@ -1,5 +1,7 @@
 streamlit
-py7zr
-pickle
 pandas
 requests
+pickle-mixin
+gdown
+
+
