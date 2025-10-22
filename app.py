@@ -3,11 +3,10 @@ import  pickle
 import pandas as pd
 import requests
 import os
-import subprocess
+import py7zr
 
-if not os.path.exists('similarity.pkl'):
-    print("Extracting similarity.pkl...")
-    subprocess.run(['7z', 'e', 'similarity.pkl.7z'])
+with py7zr.SevenZipFile('similarity.pkl.7z', mode='r') as archive:
+    archive.extractall(path='.')
 
 
 
@@ -81,3 +80,4 @@ if st.button('Recommend'):
         st.text(names[4])
 
         st.image(posters[4])
+
