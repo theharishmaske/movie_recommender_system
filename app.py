@@ -53,7 +53,7 @@ def recommend(movie):
             writer_similarity = 0.3 * (int(movies['writer'].iloc[i] == movies['writer'].iloc[movie_index]))
             total = j + director_similarity + writer_similarity
             reco.append(total)
-    mo_list = sorted(list(enumerate(reco)), reverse=True, key=lambda x: x[1])[1:6]
+    mo_list = sorted(list(enumerate(reco)), reverse=True, key=lambda x: x[1])[0:10]
     recommended_movies = []
     recommended_movies_posters = []
     for i in mo_list:
@@ -92,6 +92,7 @@ if st.button('Recommend'):
         st.text(names[4])
 
         st.image(posters[4])
+
 
 
 
